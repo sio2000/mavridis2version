@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Calculator, Building, Ruler, FileText, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Building2, Calculator, Building, Ruler, FileText, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, X } from 'lucide-react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,6 +8,58 @@ import t2 from '../assets/images/t2.jpg';
 import architecturalDesign from '../assets/images/architectural-design.jpg';
 import img77 from '../assets/images/77.jpg';
 import imgRt5 from '../assets/images/rt5.jpg';
+import t1 from '../assets/images/t1.jpg';
+import t3 from '../assets/images/t3.jpg';
+import t4 from '../assets/images/t4.jpg';
+import t5 from '../assets/images/t5.jpg';
+import t6 from '../assets/images/t6.jpg';
+import t7 from '../assets/images/t7.jpg';
+import t8 from '../assets/images/t8.jpg';
+import t9 from '../assets/images/t9.jpg';
+import t10 from '../assets/images/t10.jpg';
+import q1 from '../assets/images/q1.jpg';
+import q2 from '../assets/images/q2.jpg';
+import q3 from '../assets/images/q3.jpg';
+import q4 from '../assets/images/q4.jpg';
+import q5 from '../assets/images/q5.jpg';
+import q6 from '../assets/images/q6.jpg';
+import q7 from '../assets/images/q7.jpg';
+import q8 from '../assets/images/q8.jpg';
+import q9 from '../assets/images/q9.jpg';
+import r1 from '../assets/images/r1.jpg';
+import r2 from '../assets/images/r2.jpg';
+import r3 from '../assets/images/r3.jpg';
+import r4 from '../assets/images/r4.jpg';
+import r5 from '../assets/images/r5.jpg';
+import r6 from '../assets/images/r6.jpg';
+import r7 from '../assets/images/r7.jpg';
+import r8 from '../assets/images/r8.jpg';
+import r9 from '../assets/images/r9.jpg';
+import r10 from '../assets/images/r10.jpg';
+import r11 from '../assets/images/r11.jpg';
+import d1 from '../assets/images/d1.jpg';
+import d2 from '../assets/images/d2.jpg';
+import d4 from '../assets/images/d4.jpg';
+import d5 from '../assets/images/d5.jpg';
+import d6 from '../assets/images/d6.jpg';
+import d7 from '../assets/images/d7.jpg';
+import d8 from '../assets/images/d8.jpg';
+import d9 from '../assets/images/d9.jpg';
+import as from '../assets/images/as.jpg';
+import to from '../assets/images/to.png';
+import to1 from '../assets/images/to1.jpg';
+import f1 from '../assets/images/f1.jpg';
+import f2 from '../assets/images/f2.jpg';
+import f3 from '../assets/images/f3.jpg';
+import con1 from '../assets/images/con1.jpg';
+import con2 from '../assets/images/con2.jpg';
+import con3 from '../assets/images/con3.jpg';
+import con4 from '../assets/images/con4.jpg';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import full7 from '../assets/images/full7.jpg';
+import spiti4 from '../assets/images/spiti4.jpg';
 
 interface FeatureItem {
   title: string;
@@ -60,7 +112,7 @@ const slides = {
       description: 'Αδειοδοτήσεις, Καταστημάτων, Καταλυμάτων, Επιχειρήσεων',
       buttonText: 'Επισκόπηση',
       buttonLink: '/interior-design',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop'
+      image: spiti4
     },
     {
       title: 'Χτίζουμε το Μέλλον, Σχεδιάζουμε τα Όνειρά σας',
@@ -70,11 +122,11 @@ const slides = {
       image: t2
     },
     {
+      image: full7,
       title: 'Δηλώσεις - Βεβαιώσεις αυθαίρετων',
       description: 'Αρχιτεκτονικός σχεδιασμός, Έκδοση αδειών, Επαγγελματικών χώρων, Τουριστικών καταλυμάτων, Επιχειρήσεων',
       buttonText: 'Δείτε τις αρχιτεκτονικές μας λύσεις',
-      buttonLink: '/portfolio',
-      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop'
+      link: '/architectural-design'
     }
   ],
   en: [
@@ -83,7 +135,7 @@ const slides = {
       description: 'Licensing, Stores, Accommodations, Businesses',
       buttonText: 'Overview',
       buttonLink: '/interior-design',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop'
+      image: spiti4
     },
     {
       title: 'Building the Future, Designing Your Dreams',
@@ -93,11 +145,11 @@ const slides = {
       image: t2
     },
     {
-      title: 'Arbitrary Building Declarations - Certifications',
-      description: 'Architectural design, Licensing, Commercial spaces, Tourist accommodations, Business premises',
+      image: full7,
+      title: 'Declarations - Certificates of unauthorized buildings',
+      description: 'Architectural design, Licensing, Commercial spaces, Tourist accommodations, Businesses',
       buttonText: 'View our architectural solutions',
-      buttonLink: '/portfolio',
-      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=2069&auto=format&fit=crop'
+      link: '/architectural-design'
     }
   ]
 };
@@ -106,6 +158,7 @@ const Home = () => {
   const { t } = useTranslation();
   const { language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     // Ορισμός title και meta description για SEO
@@ -233,6 +286,51 @@ const Home = () => {
     });
   };
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ],
+    nextArrow: <button className="slick-next"><ChevronRight className="w-6 h-6" /></button>,
+    prevArrow: <button className="slick-prev"><ChevronLeft className="w-6 h-6" /></button>,
+  };
+
+  const handleImageClick = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+  };
+
+  const closeFullscreen = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -323,17 +421,15 @@ const Home = () => {
       </div>
 
       {/* Balkans Section */}
-      <div className="py-16 bg-white">
+      <div className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h2 
-            className="text-3xl font-bold text-center mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
           >
-            {language === 'el' 
-              ? 'Γιατί αξίζει να ενδιαφερθείτε, ιδιαίτερα αν προέρχεστε από τα Βαλκάνια'
-              : 'Why you should be interested, especially if you come from the Balkans'}
+            {language === 'el' ? 'Βαλκάνια' : 'Balkans'}
           </motion.h2>
 
           <motion.div
@@ -353,6 +449,160 @@ const Home = () => {
               className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
               {language === 'el' ? 'Μάθετε περισσότερα!' : 'Learn more!'}
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Projects Showcase Section */}
+      <div className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-6 text-blue-600"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {language === 'el' ? 'Οι Δημιουργίες μας!' : 'Our Creations!'}
+          </motion.h2>
+
+          <motion.p
+            className="text-gray-600 text-center text-lg mb-12 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {language === 'el' 
+              ? <>Οι παρακάτω εικόνες αποτυπώνουν τόσο την <span className="font-bold text-black">αρχιτεκτονική</span> όσο και την <span className="font-bold text-black">κατασκευαστική</span> πλευρά της επιχείρησής μας, αποπνέοντας τον μόχθο και την αφοσίωση που καταβάλλουμε καθημερινά για εσάς.</>
+              : <>The following images capture both the <span className="font-bold text-black">architectural</span> and <span className="font-bold text-black">construction</span> aspects of our business, reflecting the dedication and effort we put in daily for you.</>
+            }
+          </motion.p>
+
+          <motion.div 
+            className="relative px-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <Slider {...sliderSettings}>
+              {[
+                { img: r7 },
+                { img: q3 },
+                { img: t5 },
+                { img: d8 },
+                { img: r2 },
+                { img: q8 },
+                { img: t1 },
+                { img: d4 },
+                { img: r11 },
+                { img: q1 },
+                { img: t8 },
+                { img: d1 },
+                { img: r4 },
+                { img: q5 },
+                { img: t3 },
+                { img: d7 },
+                { img: r9 },
+                { img: q2 },
+                { img: t10 },
+                { img: d2 },
+                { img: r1 },
+                { img: q7 },
+                { img: t2 },
+                { img: d9 },
+                { img: r6 },
+                { img: q4 },
+                { img: t7 },
+                { img: as },
+                { img: r3 },
+                { img: q9 },
+                { img: t4 },
+                { img: d5 },
+                { img: r8 },
+                { img: q6 },
+                { img: t6 },
+                { img: d6 },
+                { img: r5 },
+                { img: to },
+                { img: r10 },
+                { img: to1 },
+                { img: f1 },
+                { img: f2 },
+                { img: f3 },
+                { img: con1 },
+                { img: con2 },
+                { img: con3 },
+                { img: con4 }
+              ].map((slide, index) => (
+                <div key={index}>
+                  <img 
+                    src={slide.img} 
+                    alt="" 
+                    className="w-full h-[600px] object-cover cursor-pointer" 
+                    onClick={() => handleImageClick(slide.img)}
+                  />
+                </div>
+              ))}
+            </Slider>
+          </motion.div>
+
+          {/* Fullscreen Modal με δυνατότητα πλοήγησης */}
+          {selectedImage && (
+            <div 
+              className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center"
+            >
+              <button 
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const currentIndex = slides[language].findIndex(slide => slide.image === selectedImage);
+                  const prevIndex = currentIndex > 0 ? currentIndex - 1 : slides[language].length - 1;
+                  setSelectedImage(slides[language][prevIndex].image);
+                }}
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+
+              <img 
+                src={selectedImage} 
+                alt="" 
+                className="max-h-[90vh] max-w-[90vw] object-contain"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              <button 
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const currentIndex = slides[language].findIndex(slide => slide.image === selectedImage);
+                  const nextIndex = currentIndex < slides[language].length - 1 ? currentIndex + 1 : 0;
+                  setSelectedImage(slides[language][nextIndex].image);
+                }}
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+
+              <button 
+                className="absolute top-4 right-4 text-white hover:text-gray-300"
+                onClick={closeFullscreen}
+              >
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+          )}
+
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              {language === 'el' ? 'Δείτε όλα τα έργα μας' : 'View all our projects'}
+              <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
         </div>

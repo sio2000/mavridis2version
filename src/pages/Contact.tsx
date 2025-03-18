@@ -53,7 +53,7 @@ const Contact = () => {
 
   const contactInfo = {
     phones: ['+30 2531034781', '+30 6977 717410', '+30 6976 999811'],
-    email: ['info@in-mavridis.gr', 'niki_mavridou@yahoo.gr'],
+    email: ['ymavridis@gmail.com', 'niki_mavridou@yahoo.gr'],
     address: {
       el: 'Θάσου 1, Κομοτηνή, 69100',
       en: '1 Thasou, Komotini, 69100'
@@ -73,8 +73,8 @@ const Contact = () => {
   };
 
   const officeLocation = {
-    lat: 41.1171,
-    lng: 25.4048,
+    lat: 41.115338081967046,
+    lng: 25.405340183654182,
     address: contactInfo.address
   };
 
