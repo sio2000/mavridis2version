@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Calculator, Building, Ruler, FileText, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, X } from 'lucide-react';
+import { Building2, Calculator, Building, Ruler, FileText, CheckCircle, ChevronLeft, ChevronRight, ArrowRight, X, Award, Users } from 'lucide-react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../context/LanguageContext';
@@ -60,6 +60,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import full7 from '../assets/images/full7.jpg';
 import spiti4 from '../assets/images/spiti4.jpg';
+import { CheckCircle2 } from 'lucide-react';
+import qq3 from '../assets/images/qq3.jpg';
+import aa1 from '../assets/images/aa1.jpg';
+import ee3 from '../assets/images/ee3.jpg';
+import house2 from '../assets/images/house2.jpg';
+import pou3 from '../assets/images/pou3.jpg';
+import full5 from '../assets/images/full5.jpg';
+import qq5 from '../assets/images/qq5.jpg';
+import tt1 from '../assets/images/tt1.jpg';
+import ik4 from '../assets/images/ik4.jpg';
 
 interface FeatureItem {
   title: string;
@@ -72,14 +82,14 @@ const certifications = {
       '<strong>Πιστοποιημένος Ελεγκτής Δόμησης</strong>. Για έργα της μεγαλύτερης κατηγορίας.',
       '<strong>Πιστοποιημένος Επιθεωρητής Καταλυμάτων</strong>. Για κατηγοριοποίηση ξενοδοχειακών μονάδων (αστεροποίηση) και ενοικιαζόμενων δωματίων (κλειδιά) από την <strong>TÜV Austria</strong>.',
       'Εμπειρία στις <strong>Εκτιμήσεις Ακινήτων</strong>, με συνεργασίες με διάφορες τράπεζες (Πανελλήνια, Ασπίς, Αγροτική, Πειραιώς).',
-      'Εξειδίκευση σε <strong>Ενεργειακές Μελέτες και Επιθεωρήσεις</strong> βάσει <strong>ΚΕΝΑΚ</strong>.',
+      '<strong>Πιστοποίηση ISO/IEC 17024</strong>.',
       'Διεκπεραίωση προγράμματος <strong>"Εξοικονομώ κατ\' Οίκον"</strong>.',
       '<strong>Expert Valuer in Real Estate Property (REV) – TEGoVA</strong>.',
       '<strong>Πιστοποιημένη Εκτιμήτρια Ακινήτων</strong>, διεξάγοντας εκτιμήσεις σύμφωνα με τα Ευρωπαϊκά Πρότυπα.'
     ],
     column2: [
       '<strong>ΜΕΛΟΣ ΕΠΑΓΓΕΛΜΑΤΙΚΩΝ ΟΡΓΑΝΙΣΜΩΝ</strong>',
-      '<strong>Πιστοποίηση ISO/IEC 17024</strong>.',
+      'Εξειδίκευση σε <strong>Ενεργειακές Μελέτες και Επιθεωρήσεις</strong> βάσει <strong>ΚΕΝΑΚ</strong>.',
       '<strong>Μέλος του Συλλόγου Εκτιμητών Ελλάδος (Σ.ΕΚ.Ε.)</strong>.',
       '<strong>Συμμετοχή στην TEGoVA</strong>.',
       '<strong>Εντεταλμένος Χορηγός REV της TEGoVA</strong>.'
@@ -332,7 +342,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative w-full h-[80vh] md:h-[90vh] bg-cover bg-center">
         <div className="absolute inset-0">
@@ -454,11 +464,134 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Project Management Section */}
+      <div 
+        className="py-16 relative bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${qq3})` }}
+      >
+        {/* Προσθήκη overlay για καλύτερη αναγνωσιμότητα */}
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              {language === 'el' 
+                ? 'Ολοκληρωμένη Διαχείριση Έργων & Αρχιτεκτονικός Σχεδιασμός' 
+                : 'Comprehensive Project & Architectural Management'}
+            </h2>
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto">
+              {language === 'el'
+                ? 'Από τον σχεδιασμό έως την υλοποίηση, προσφέρουμε ολοκληρωμένες λύσεις διαχείρισης έργων με επαγγελματική ακρίβεια και αξιοπιστία.'
+                : 'From planning to execution, we offer comprehensive project management solutions with professional precision and reliability.'}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Construction Management Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Building2 className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' 
+                    ? 'Διαχείριση Εργοταξίου & Έργων' 
+                    : 'Construction Site & Project Management'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  language === 'el' ? 'Κοστολόγηση ανά στάδιο' : 'Stage-based cost estimation',
+                  language === 'el' ? 'Χρονοπρογραμματισμός (Project Management)' : 'Time scheduling (Project Management)',
+                  language === 'el' ? 'Επίβλεψη & στατικές ενισχύσεις' : 'Supervision & structural reinforcements'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-blue-500 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Architectural Design Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Ruler className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' 
+                    ? 'Αρχιτεκτονικός Σχεδιασμός & Άδειες' 
+                    : 'Architectural Design & Permits'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  language === 'el' ? 'Συμβουλευτική σε θέματα ακινήτων' : 'Consulting on property matters',
+                  language === 'el' ? 'Άδειες για όλους τους τύπους έργων' : 'Permits for all project types',
+                  language === 'el' ? 'Αρχιτεκτονικός σχεδιασμός & υλοποίηση' : 'Architectural design & implementation'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-blue-500 flex-shrink-0" />
+                    <span className="text-gray-700">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              {language === 'el' ? 'Επικοινωνήστε μαζί μας' : 'Contact us'}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+
       {/* Projects Showcase Section */}
       <div className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-6 text-blue-600"
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -466,131 +599,32 @@ const Home = () => {
             {language === 'el' ? 'Οι Δημιουργίες μας!' : 'Our Creations!'}
           </motion.h2>
 
-          <motion.p
-            className="text-gray-600 text-center text-lg mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            {language === 'el' 
-              ? <>Οι παρακάτω εικόνες αποτυπώνουν τόσο την <span className="font-bold text-black">αρχιτεκτονική</span> όσο και την <span className="font-bold text-black">κατασκευαστική</span> πλευρά της επιχείρησής μας, αποπνέοντας τον μόχθο και την αφοσίωση που καταβάλλουμε καθημερινά για εσάς.</>
-              : <>The following images capture both the <span className="font-bold text-black">architectural</span> and <span className="font-bold text-black">construction</span> aspects of our business, reflecting the dedication and effort we put in daily for you.</>
-            }
-          </motion.p>
-
-          <motion.div 
-            className="relative px-8"
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2"
           >
-            <Slider {...sliderSettings}>
-              {[
-                { img: r7 },
-                { img: q3 },
-                { img: t5 },
-                { img: d8 },
-                { img: r2 },
-                { img: q8 },
-                { img: t1 },
-                { img: d4 },
-                { img: r11 },
-                { img: q1 },
-                { img: t8 },
-                { img: d1 },
-                { img: r4 },
-                { img: q5 },
-                { img: t3 },
-                { img: d7 },
-                { img: r9 },
-                { img: q2 },
-                { img: t10 },
-                { img: d2 },
-                { img: r1 },
-                { img: q7 },
-                { img: t2 },
-                { img: d9 },
-                { img: r6 },
-                { img: q4 },
-                { img: t7 },
-                { img: as },
-                { img: r3 },
-                { img: q9 },
-                { img: t4 },
-                { img: d5 },
-                { img: r8 },
-                { img: q6 },
-                { img: t6 },
-                { img: d6 },
-                { img: r5 },
-                { img: to },
-                { img: r10 },
-                { img: to1 },
-                { img: f1 },
-                { img: f2 },
-                { img: f3 },
-                { img: con1 },
-                { img: con2 },
-                { img: con3 },
-                { img: con4 }
-              ].map((slide, index) => (
-                <div key={index}>
-                  <img 
-                    src={slide.img} 
-                    alt="" 
-                    className="w-full h-[600px] object-cover cursor-pointer" 
-                    onClick={() => handleImageClick(slide.img)}
-                  />
-                </div>
-              ))}
-            </Slider>
+            {[t1, t3, full5, t5, t6, qq5, t7, aa1, q1, tt1, ee3, house2, pou3, con2, t4, ik4].map((image, index) => (
+              <motion.div
+                key={index}
+                className="relative aspect-square group cursor-pointer overflow-hidden"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: index * 0.1 }}
+                onClick={() => handleImageClick(image)}
+              >
+                <img
+                  src={image}
+                  alt={`Project ${index + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300" />
+              </motion.div>
+            ))}
           </motion.div>
 
-          {/* Fullscreen Modal με δυνατότητα πλοήγησης */}
-          {selectedImage && (
-            <div 
-              className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center"
-            >
-              <button 
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const currentIndex = slides[language].findIndex(slide => slide.image === selectedImage);
-                  const prevIndex = currentIndex > 0 ? currentIndex - 1 : slides[language].length - 1;
-                  setSelectedImage(slides[language][prevIndex].image);
-                }}
-              >
-                <ChevronLeft className="w-8 h-8" />
-              </button>
-
-              <img 
-                src={selectedImage} 
-                alt="" 
-                className="max-h-[90vh] max-w-[90vw] object-contain"
-                onClick={(e) => e.stopPropagation()}
-              />
-
-              <button 
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const currentIndex = slides[language].findIndex(slide => slide.image === selectedImage);
-                  const nextIndex = currentIndex < slides[language].length - 1 ? currentIndex + 1 : 0;
-                  setSelectedImage(slides[language][nextIndex].image);
-                }}
-              >
-                <ChevronRight className="w-8 h-8" />
-              </button>
-
-              <button 
-                className="absolute top-4 right-4 text-white hover:text-gray-300"
-                onClick={closeFullscreen}
-              >
-                <X className="w-8 h-8" />
-              </button>
-            </div>
-          )}
-
+          {/* CTA Button */}
           <motion.div 
             className="text-center mt-12"
             initial={{ opacity: 0, y: 20 }}
@@ -606,148 +640,54 @@ const Home = () => {
             </Link>
           </motion.div>
         </div>
-      </div>
 
-      {/* Construction Services Section */}
-      <div className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 
-            className="text-3xl font-bold text-center mb-12 gradient-text"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+        {/* Fullscreen Modal */}
+        {selectedImage && (
+          <div 
+            className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center"
+            onClick={closeFullscreen}
           >
-            {t('home.constructionServices.title')}
-          </motion.h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              {/* Work Plan Design */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <h3 className="text-2xl font-semibold mb-6">
-                  {t('home.constructionServices.planning.title')}
-                </h3>
-                <ul className="space-y-3">
-                  {(t('home.constructionServices.planning.items') as string[]).map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <Ruler className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              {/* Specialized Works */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <h3 className="text-2xl font-semibold mb-6">
-                  {t('home.constructionServices.specialized.title')}
-                </h3>
-                <ul className="space-y-3">
-                  {(t('home.constructionServices.specialized.items') as string[]).map((item, index) => (
-                    <li key={index} className="flex items-start space-x-3">
-                      <Building2 className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-
-            {/* Image Section */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group"
+            <button 
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
+              onClick={(e) => {
+                e.stopPropagation();
+                const images = [t1, t3, full5, t5, t6, qq5, t7, aa1, q1, tt1, ee3, house2, pou3, con2, t4, ik4];
+                const currentIndex = images.indexOf(selectedImage);
+                const prevIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+                setSelectedImage(images[prevIndex]);
+              }}
             >
-              <img 
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-                alt="Construction and Architecture"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    {t('home.constructionServices.construction.title')}
-                  </h3>
-                  <p className="text-gray-200 mb-4">
-                    {t('home.constructionServices.construction.description')}
-                  </p>
-                  <p className="text-gray-300 text-sm">
-                    {t('home.constructionServices.construction.quality')}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+
+            <img 
+              src={selectedImage} 
+              alt="" 
+              className="max-h-[90vh] max-w-[90vw] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            <button 
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
+              onClick={(e) => {
+                e.stopPropagation();
+                const images = [t1, t3, full5, t5, t6, qq5, t7, aa1, q1, tt1, ee3, house2, pou3, con2, t4, ik4];
+                const currentIndex = images.indexOf(selectedImage);
+                const nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                setSelectedImage(images[nextIndex]);
+              }}
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            <button 
+              className="absolute top-4 right-4 text-white hover:text-gray-300"
+              onClick={closeFullscreen}
+            >
+              <X className="w-8 h-8" />
+            </button>
           </div>
-        </div>
-      </div>
-
-      {/* Text Section above Services */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              {language === 'el' ? 'Ολοκληρωμένες Αρχιτεκτονικές & Κατασκευαστικές Υπηρεσίες' : 'Comprehensive Architectural & Construction Services'}
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              {language === 'el' 
-                ? 'Το αρχιτεκτονικό και κατασκευαστικό μας γραφείο προσφέρει ολοκληρωμένες λύσεις για κάθε έργο, από τη σύλληψη της ιδέας έως την ολοκλήρωση της κατασκευής. Απευθυνόμαστε σε ιδιώτες και επιχειρήσεις που επιθυμούν να διαχειριστούν το ιδιοκτησιακό τους καθεστώς, να χτίσουν σε αστικά ή παραθαλάσσια οικόπεδα και να υλοποιήσουν το όραμά τους με απόλυτη συνέπεια και επαγγελματισμό.'
-                : 'Our architectural and construction office offers comprehensive solutions for every project, from concept to completion. We serve individuals and businesses looking to manage their property status, build in urban or seaside plots, and realize their vision with absolute consistency and professionalism.'
-              }
-            </p>
-
-            {/* Το κουμπί */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link 
-                to="/blog"
-                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-lg 
-                         text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 
-                         hover:scale-105 inline-flex items-center space-x-2"
-              >
-                <span>
-                  {language === 'el' 
-                    ? 'Επισκόπηση της δουλειάς μας'
-                    : 'Overview of our work'
-                  }
-                </span>
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  className="h-5 w-5" 
-                  viewBox="0 0 20 20" 
-                  fill="currentColor"
-                >
-                  <path 
-                    fillRule="evenodd" 
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" 
-                    clipRule="evenodd" 
-                  />
-                </svg>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
+        )}
       </div>
 
       {/* Services Section */}
@@ -790,76 +730,99 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Why Choose Us Section */}
-      <div className="py-12 md:py-16 bg-gray-50">
+      {/* Certifications Section */}
+      <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h2 
-            className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 gradient-text"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="text-3xl md:text-4xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            {t('home.whyChooseUs.title')}
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {(t('home.whyChooseUs.features') as FeatureItem[]).map((feature, index) => (
-              <motion.div
-                key={index}
-                className="bg-white p-4 md:p-6 rounded-lg shadow-lg hover-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <h3 className="text-lg md:text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm md:text-base">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Certifications Section */}
-      <div className="bg-white py-12 md:py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">
             {t('home.certifications.title')}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {/* Left Column */}
+          </motion.h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Certifications Cards */}
             <motion.div
-              className="bg-gray-50 p-4 md:p-8 rounded-lg overflow-x-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <ul className="space-y-3 min-w-[300px]">
+              <div className="flex items-center mb-6">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Award className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' ? 'Επαγγελματικές Πιστοποιήσεις' : 'Professional Certifications'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
                 {certifications[language].column1.map((cert, index) => (
-                  <li key={index} className="flex items-start text-sm md:text-base">
-                    <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
-                    <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: cert }}></span>
-                  </li>
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start space-x-3 text-gray-700"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: cert }}></span>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
 
-            {/* Right Column */}
+            {/* Memberships Card */}
             <motion.div
-              className="bg-gray-50 p-4 md:p-8 rounded-lg overflow-x-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border border-gray-100"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <ul className="space-y-3 min-w-[300px]">
+              <div className="flex items-center mb-6">
+                <div className="bg-green-100 p-3 rounded-full">
+                  <Users className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-semibold ml-4 text-gray-800">
+                  {language === 'el' ? 'Επαγγελματικές Συμμετοχές' : 'Professional Memberships'}
+                </h3>
+              </div>
+              <ul className="space-y-4">
                 {certifications[language].column2.map((cert, index) => (
-                  <li key={index} className="flex items-start text-sm md:text-base">
-                    <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
-                    <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: cert }}></span>
-                  </li>
+                  <motion.li 
+                    key={index} 
+                    className="flex items-start space-x-3 text-gray-700"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <CheckCircle2 className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: cert }}></span>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
           </div>
+
+          {/* CTA Button */}
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Link
+              to="/about-us"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              {language === 'el' ? 'Μάθετε περισσότερα για εμάς' : 'Learn more about us'}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>
