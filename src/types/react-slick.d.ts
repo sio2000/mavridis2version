@@ -9,6 +9,11 @@ declare module 'react-slick' {
     slidesToScroll?: number;
     nextArrow?: ReactNode;
     prevArrow?: ReactNode;
+    children?: ReactNode;
+    className?: string;
+    'aria-label'?: string;
+    arrows?: boolean;
+    customPaging?: (i: number) => ReactNode;
   }
 
   export default class Slider extends React.Component<Settings> {}

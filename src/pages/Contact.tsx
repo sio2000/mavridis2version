@@ -83,13 +83,19 @@ const Contact = () => {
       name: 'Facebook',
       icon: Facebook,
       url: 'https://www.facebook.com/mavridiskomotini',
-      color: 'bg-[#1877F2] hover:bg-[#0d6efd]'
+      color: 'bg-[#1877f2] hover:bg-[#0d6efd]'
     },
     {
       name: 'Instagram',
       icon: Instagram,
       url: 'https://www.instagram.com/mavridis_architecture_engineer/',
       color: 'bg-[#E4405F] hover:bg-[#d62e4c]'
+    },
+    {
+      name: 'LinkedIn',
+      icon: Linkedin,
+      url: 'https://www.linkedin.com/in/ioannis-mavridis-9689843a/',
+      color: 'bg-[#0A66C2] hover:bg-[#004182]'
     },
     {
       name: 'TikTok',
@@ -252,8 +258,32 @@ const Contact = () => {
               </motion.div>
 
               {/* Social Media Links */}
-              <div className="mt-8 flex justify-center space-x-6">
-                {socialMedia.map((platform) => (
+              <div className="flex flex-wrap gap-4">
+                <motion.a
+                  href="https://www.facebook.com/mavridiskomotini"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-[#1877f2] text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Facebook className="h-6 w-6" />
+                  <span className="text-sm font-medium">Facebook</span>
+                </motion.a>
+
+                <motion.a
+                  href="https://www.facebook.com/ARCHInimanikimavridou"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <Facebook className="h-6 w-6" />
+                  <span className="text-sm font-medium">
+                    {language === 'el' ? '2nd - Facebook' : '2nd - Facebook'}
+                  </span>
+                </motion.a>
+
+                {socialMedia.slice(1).map((platform) => (
                   <motion.a
                     key={platform.name}
                     href={platform.url}

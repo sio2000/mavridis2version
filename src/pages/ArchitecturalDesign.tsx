@@ -12,6 +12,12 @@ import t6 from '../assets/images/t6.jpg';
 import t7 from '../assets/images/t7.jpg';
 import t8 from '../assets/images/t8.jpg';
 import t9 from '../assets/images/d6.jpg';
+import detachedHouse1 from '../assets/images/detached_house_.jpg';
+import detachedHouse2 from '../assets/images/detached_house_2.jpg';
+import detachedHouse3 from '../assets/images/detached_house_3.jpg';
+import detachedHouse4 from '../assets/images/detached_house_4.jpg';
+import detachedHouse5 from '../assets/images/detached_house_5.jpg';
+import detachedHouse6 from '../assets/images/detached_house_6.jpg';
 
 const ArchitecturalDesign = () => {
   const { language } = useLanguage();
@@ -125,6 +131,114 @@ const ArchitecturalDesign = () => {
       }
     }
   };
+
+  const projectImages = [
+    {
+      image: t1,
+      title: {
+        el: 'Παραδοσιακή Κατοικία',
+        en: 'Traditional House'
+      }
+    },
+    {
+      image: t2,
+      title: {
+        el: '3D Απεικόνιση Κτιρίου',
+        en: '3D Building Rendering'
+      }
+    },
+    {
+      image: t3,
+      title: {
+        el: 'Σύγχρονο Διαμέρισμα',
+        en: 'Modern Apartment'
+      }
+    },
+    {
+      image: detachedHouse1,
+      title: {
+        el: 'Μονοκατοικία με Κήπο',
+        en: 'House with Garden'
+      }
+    },
+    {
+      image: detachedHouse2,
+      title: {
+        el: 'Διώροφη Μονοκατοικία',
+        en: 'Two-story House'
+      }
+    },
+    {
+      image: detachedHouse3,
+      title: {
+        el: 'Σύγχρονη Εξοχική Κατοικία',
+        en: 'Modern Vacation House'
+      }
+    },
+    {
+      image: t4,
+      title: {
+        el: 'Επαγγελματικός Χώρος',
+        en: 'Commercial Space'
+      }
+    },
+    {
+      image: t5,
+      title: {
+        el: 'Διαμέρισμα Πολυτελείας',
+        en: 'Luxury Apartment'
+      }
+    },
+    {
+      image: detachedHouse4,
+      title: {
+        el: 'Βιοκλιματική Κατοικία',
+        en: 'Bioclimatic House'
+      }
+    },
+    {
+      image: detachedHouse5,
+      title: {
+        el: 'Μοντέρνα Μονοκατοικία',
+        en: 'Modern Single House'
+      }
+    },
+    {
+      image: t6,
+      title: {
+        el: 'Ανακαινισμένο Διαμέρισμα',
+        en: 'Renovated Apartment'
+      }
+    },
+    {
+      image: detachedHouse6,
+      title: {
+        el: 'Πολυτελής Εξοχική Κατοικία',
+        en: 'Luxury Vacation House'
+      }
+    },
+    {
+      image: t7,
+      title: {
+        el: 'Μοντέρνο Γραφείο',
+        en: 'Modern Office'
+      }
+    },
+    {
+      image: t8,
+      title: {
+        el: 'Κατάστημα',
+        en: 'Retail Store'
+      }
+    },
+    {
+      image: t9,
+      title: {
+        el: 'Διαμέρισμα στο Κέντρο',
+        en: 'City Center Apartment'
+      }
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -244,19 +358,23 @@ const ArchitecturalDesign = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[t1, t2, t3, t4, t5, t6, t7, t8, t9].map((image, index) => (
+              {projectImages.map((project, index) => (
                 <motion.div
                   key={index}
-                  className="relative aspect-square overflow-hidden rounded-lg shadow-md"
+                  className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow group"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <img
-                    src={image}
-                    alt={`Project sample ${index + 1}`}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                  />
+                  <div className="relative aspect-[4/3]">
+                    <img 
+                      src={project.image} 
+                      alt={project.title[language as keyof typeof project.title]} 
+                      className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  </div>
                 </motion.div>
               ))}
             </div>
